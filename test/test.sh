@@ -3,7 +3,7 @@ chmod +x ../script.sh
 
 # Modify script so it tests a value we know
 sed -i '4s/.*/random_number=25/' ../script.sh
-lg -r p -m "Set random number to 25"
+lg -r p -m "Setting random number to 25..."
 
 # Store script output
 output=$(../script.sh << EOF
@@ -68,10 +68,10 @@ do
       fi
       ;;
     4)
-      if [[ "$line" == *"success"* || "$line" == *"correct"* ]]; then
+      if [[ "$line" == *"success"* || "$line" == *"correct"* || "$line" == *"won"* ]]; then
         lg -r p -m "Fifth attempt, correct"
       else
-        lg -r f -m "Fifth attempt, not correct" -e "Random number was 25. Tested with 25. Make sure your game outputs a success message."
+        lg -r f -m "Fifth attempt, not correct" -e "Random number was 25. Tested with 25. Make sure your game outputs a success/winning message."
       fi
       ;;
   esac
