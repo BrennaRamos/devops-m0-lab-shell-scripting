@@ -4,37 +4,34 @@
 random_number=$((1 + $RANDOM % 50))
 # END DO NOT EDIT
 
-# Initialize number of tries to 0
-TRIES=0
+# Initialize number of tries to zero
 
-# Start loop for 5 chances to guess the number
-for i in {1..5}
-do
-  # Read user input for guess
-  read -p "Enter your guess: " GUESS
-
+# Loop 5 times to give the user chances to guess the number
+  for tries in ((tries = 0; tries < 5; tries++))
+    do 
+  # Read user input as guess
+      echo "Input your guess" 
+      read guess
   # Check if guess is correct
-  if [ $GUESS -eq $random_number ]
-  then
-    echo "You won! It took you $TRIES tries."
-    break
-  fi
-
-  # Increment number of tries
-  TRIES=$((TRIES + 1))
-
+      
+      if guess > random_number
+        then
+        echo "Your guess was too high"
+      fi
+      if guess = random_number
+        then 
+        echo "You got it!"
+        break
+      if guess < random_number
+        then
+        echo "Your guess was too low"
+      fi
+      if tries = 4
+        then
+        echo "Game Over."
+  done
+   
+  
+  # If not correct, increment number of tries
   # Provide hint if guess is too high or too low
-  if [ $GUESS -gt $random_number ]
-  then
-    echo "Too high. You have $(expr 5 - $TRIES) tries left."
-  else
-    echo "Too low. You have $(expr 5 - $TRIES) tries left."
-  fi
-done
-
-# If user ran out of chances, display message
-if [ $TRIES -eq 5 ]
-then
-  echo "You lost. The number was $random_number."
-fi
-
+# If tries are greater than or equal to five, the user ran out of chances, in which case echo losing message
