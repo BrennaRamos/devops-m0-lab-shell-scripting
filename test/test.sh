@@ -77,3 +77,5 @@ do
   esac
   line_number=$((line_number + 1))
 done <<< "$output"
+
+echo "$output"
