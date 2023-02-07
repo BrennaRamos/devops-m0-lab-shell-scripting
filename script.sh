@@ -7,7 +7,7 @@ random_number=$((1 + $RANDOM % 50))
 # Initialize number of tries to zero
 
 # Loop 5 times to give the user chances to guess the number
-  for tries in ((tries = 0; tries < 5; tries++))
+  for tries in (tries = 0; tries < 5; tries++)
     do 
   # Read user input as guess
       remaining = 5 - tries
