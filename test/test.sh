@@ -2,7 +2,7 @@
 chmod +x ../script.sh
 
 # Modify script so it tests a value we know
-sed -i '4s/.*/random_number = 25/' ../script.sh
+sed -i '4s/.*/random_number=25/' ../script.sh
 lg -r p -m "Set random number to 25"
 
 # Store script output
