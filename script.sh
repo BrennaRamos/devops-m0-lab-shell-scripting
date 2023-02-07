@@ -10,25 +10,26 @@ random_number=$((1 + $RANDOM % 50))
   for tries in ((tries = 0; tries < 5; tries++))
     do 
   # Read user input as guess
+      remaining = 5 - tries
       echo "Input your guess" 
       read guess
   # Check if guess is correct
       
       if guess > random_number
         then
-        echo "Your guess was too high"
+        echo "Your guess was too high, you have $remaining tries left"
       fi
       if guess = random_number
         then 
-        echo "You got it!"
+        echo "You got it! You used $tries tries"
         break
       if guess < random_number
         then
-        echo "Your guess was too low"
+        echo "Your guess was too low, you have $remaining tries left"
       fi
       if tries = 4
         then
-        echo "Game Over."
+        echo "Game Over. Ran out of tries."
   done
    
   
