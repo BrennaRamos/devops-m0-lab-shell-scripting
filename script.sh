@@ -10,8 +10,7 @@ random_number=$((1 + $RANDOM % 50))
   for ((tries=1; tries<=5; tries++))
     do 
   # Read user input as guess
-      remaining=$((5-tries))
-      echo "Input your guess" 
+      remaining=$((5-tries)) 
       read -p 'Guess: ' guess
       guess=$guess
   # Check if guess is correct
